@@ -1,0 +1,354 @@
+%-------------------------
+% Resume in Latex
+% Author : Apurv Choudhari (original: Jake Gutierrez)
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt, ]{article}
+
+\usepackage{multicol}
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\input{glyphtounicode}
+\pdfgentounicode=1
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage[document]{ragged2e}
+\usepackage{array}
+\usepackage{setspace}
+% \usepackage{geometry}
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[default]{sourcesanspro}
+
+% serif
+\usepackage{CormorantGaramond}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\fancyheadoffset[R]{0pt}
+\fancyhead[R]{August 29, 2023}
+
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.6in}
+% \addtolength{\evensidemargin}{1.0in}
+\addtolength{\textwidth}{1.2in}
+\addtolength{\topmargin}{-0.6in}
+\addtolength{\textheight}{1.2in}
+
+
+% \definecolor{orangish}{HTML}{bd5d38}
+\definecolor{orangish}{HTML}{cc3900}
+\definecolor{orangish}{HTML}{bf3300}
+\definecolor{aqua}{rgb}{0.0, 1.0, 1.0}
+\definecolor{azure(colorwheel)}{rgb}{0.0, 0.5, 1.0}
+
+\hypersetup{
+    colorlinks=true,     
+    urlcolor=azure(colorwheel)
+}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-----------------------------------------------------------------------------------------------------------------------------
+% Custom commands
+% \newcommand{\resumeItem}[1]{%
+%   \item[\textbullet]\small{%
+%     #1\vspace{-2pt}%
+%   }%
+% }
+\newcommand{\resumeItem}[1]{%
+  \item \small{%
+    #1\vspace{-2pt}%
+  }%
+}
+
+% \newcommand{\extracurricularItem}[2]{
+%   \vspace{-2pt}\item[\textbullet]
+%   \begin{tabular*}{\dimexpr\textwidth-\leftmargin}{ @{} l @{\extracolsep{\fill}} r @{}}
+%       #1 & \small #2 \\
+%     \end{tabular*}\vspace{-20pt}
+% }
+
+% \newcommand{\extracurricularItem}[2]{
+%   \vspace{-2pt}\item[\textbullet]
+%   \begin{tabular*}{\dimexpr\textwidth-\leftmargin}{ @{} p{\dimexpr\textwidth-6\leftmargin-2\tabcolsep} @{\extracolsep{\fill}} r @{}}
+%       #1 & \small #2 \\
+%   \end{tabular*}\vspace{-20pt}
+% }
+
+\newcommand{\extracurricularItem}[2]{%
+  \vspace{-2pt}%
+  \item[\textbullet]%
+  \begin{tabular*}{\dimexpr\textwidth-\leftmargin}{@{} p{\dimexpr\textwidth-6\leftmargin-2\tabcolsep} @{\extracolsep{\fill}} r @{}}%
+      \begin{minipage}[t]{\linewidth}%
+        #1%
+      \end{minipage} & \small #2 \\
+  \end{tabular*}%
+  \vspace{-20pt}%
+}
+
+
+\newcommand{\resumeSilentItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeResultItem}[1]{
+  \item[\checkmark]\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeImpactItem}[1]{
+  \item[\bigstar]\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+\newcommand{\classesList}[4]{
+    \item\small{
+        {#1 #2 #3 #4 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{\textwidth}[t]{ l @{\extracolsep{\fill}} r }
+      \textbf{#1} & \textbf{\small #2} \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{1.0\textwidth}{l@{\extracolsep{\fill}}r}
+    \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[4]{
+    \item
+    \begin{tabular*}{1.0\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & \textbf{\small #2}\\      
+      \textit{\small#3} & \textit{\small #4}\\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=10pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+\newcommand{\extracurricularItemListStart}{\begin{itemize}[leftmargin=*, itemsep=4pt, parsep=4pt]}
+\newcommand{\extracurricularItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+\newcommand{\resumeItemSilentListStart}{\vspace{-4pt} \begin{itemize}[label = {}]}
+\newcommand{\resumeItemSilentListEnd}{\end{itemize}\vspace{-7pt}}
+
+%--------------------------------------------------------------------------------------------------------------------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+%----------HEADING---------------------------------------------------------------------------------------------------------------------------------------
+\begin{center}
+    {\Huge \scshape Apurv Choudhari} \\ \vspace{1pt}
+
+    +19192912672 \textbar\  \href{mailto:apurv.choudhari@outlook.com}{\underline{apurv.choudhari@outlook.com}} \textbar\ \href{https://www.linkedin.com/in/apurv-choudhari}{\underline{linkedin.com/in/apurv-choudhari/}} \textbar\ \href{https://medium.com/@apurv.choudhari1}{\underline{medium.com/@apurv.choudhari1}}
+
+    \vspace{-8pt}
+    
+\end{center}
+
+
+%-----------EDUCATION------------------------------------------------------------------------------------------------------------------------------------
+\section{Education}
+
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Department of Computer Science, North Carolina State University}{Aug 2023 -- May 2025 (Expected)}
+      {Master of Computer Science}{Raleigh, North Carolina, United States}
+      \resumeItemSilentListStart
+      \resumeSilentItem{
+          \textbf{Courswork:} Algorithms \& Data Structures, Cloud Computing, Computer Networks, Distributed Systems, Neural Networks,
+          Data Science \newline
+          }
+      \resumeItemSilentListEnd
+      \vspace{-1pt}  
+    \resumeSubheading
+        {Vishwakarma Institute of Technology, Savitribai Phule Pune University}{Aug 2016 -- Oct 2020}
+        {Bachelor of Technology (Computer Engineering)}{Pune, Maharashtra, India}
+    \resumeItemSilentListStart
+    \resumeSilentItem{
+        \textbf{Cumulative Performance Index: 8.89} on a 10-point scale \newline
+        }
+    \resumeItemSilentListEnd
+    \vspace{-1pt}
+  \resumeSubHeadingListEnd
+
+
+%-----------TECHNICAL SKILLS------------------------------------------------------------------------------------------------------------------------------------
+\section{Technical Skills }
+% \hfill {\normalfont \textit{* indicates working-knowledge}}
+
+% \begin{multicols}{2}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+        \textbf{Programming}{: \hspace{0.5cm} C, C++, Bash, Perl, Python, Java \\
+        \textbf{Machine Learning}{: NumPy, pandas, Scikit-learn, PyCharm, NLTK} \\
+        \textbf{OS/Networking}{: \hspace{0.2cm} Linux Internels, Socket Programming, SSL/TLS, Wireshark, Public Key Certificate, Security} \\
+        \textbf{Visualization}{: \hspace{0.6cm} Matplotlib, Seaborn, tableau, Kibana} \\
+        % \textbf{Web}{: \hspace{1.8cm} HTML 5, CSS 3, Bootstrap, JavaScript, ReactJS, Spring, Flask, NodeJS, PHP, SQL} \\
+        \textbf{Cloud/DevOps}{: \hspace{0.3cm} Git, Docker and Kubernetes - \href{https://www.udemy.com/certificate/UC-6af4d799-ff15-4e2e-acc1-544f00e9e028/}{\underline{Certificate}}, Kubescape, Container Network Interfaces} \\
+    }}}
+ \end{itemize}
+% \end{multicols}
+\vspace{-20pt}
+% \center{* \textit{indicates working-knowledge}}
+% \vspace{-10pt}
+
+
+%-----------EXPERIENCE-----------------------------------------------------------------------------------------------------------------------------------------------
+\section{Experience}
+  
+  \resumeSubHeadingListStart
+
+    \resumeSubheading 
+      {Software Engineer \hspace{1.5cm} -- \hspace{0.02cm} \href{https://www.veritas.com/}{Veritas Technologies} , India} {Apr 2022 -- Jul 2023}
+      {}{}
+      \vspace{-22pt}
+      \resumeItemListStart
+        \resumeItem{Managed 2 engineers and collaborated with 16 testers for an executive order from the USA on user behavior analytics.}
+        \resumeItem{Built new auditing infrastructure to propagate user identity from all user interfaces to backend daemons and track activities in the product.}
+        \resumeItem{Recognized with 6 awards at Veritas Technologies, showcasing consistent excellence and outstanding performance.}
+      \resumeItemListEnd
+
+    \resumeSubheading 
+      {Associate Software Engineer \hspace{0.02cm} -- \hspace{0.02cm} {Veritas Technologies} , India} {Jul 2020 -- Mar 2022}
+      {}{}
+      \vspace{-22pt}
+      \resumeItemListStart
+        \resumeItem{Implemented a robust hardening strategy for NetBackup by enabling 10+ daemons and services to operate in a more secure and less privileged user context, enhancing overall system security and access control.}
+        \resumeItem{Architected pod-pod communication strategy in the Kubernetes environment and demoed relevant POCs to architects and directors.}
+      \resumeItemListEnd
+    
+    \resumeSubheading 
+      {Software Engineer Intern \hspace{0.50cm} -- \hspace{0.02cm} {Veritas Technologies} , India} {Jan 2020 -- Jun 2020}
+      {}{}
+      \vspace{-22pt}
+      \resumeItemListStart
+        \resumeItem{Engineered Health Checker, a scalable feature that automatically runs checks on multi-host environments to detect poor health of product.}
+        \resumeItem{Enhanced operational efficiency by generating critical alert notifications well in advance.}
+        \resumeItem{Presented the project to key stakeholders, including the director, architect, and project manager and placed in the top 8 intern projects (out of more than 50) chosen for the yearly poster presentation event Illuminate 2020.}
+      \resumeItemListEnd
+
+    \resumeSubheading 
+      { Research Assistant Intern \hspace{0.40cm} -- \hspace{0.02cm} \href{https://chainworks.io/}{Chainworks Digital} , India} {Mar 2019 -- Jul 2019}
+      {}{}
+      \vspace{-22pt}
+      \resumeItemListStart
+        \resumeItem{Used Quorum for the development of Ethereum-based private blockchain with Raft consensus model.}
+        \resumeItem{Researched and developed automation infrastructure for installing and monitoring GoQuorum blockchain nodes and analyzed various consensus algorithms like Raft, QBFT, and Istanbul BFT.}
+      \resumeItemListEnd
+
+    
+  \resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------------------------------------------------------------------------------------------------------------------------------------------
+
+% USE CS DOMAIN FOR PROJECTS INSEAD OF TITLE
+
+\section{Projects}
+    \begin{justify}
+
+        \resumeSubHeadingListStart
+          \resumeProjectHeading
+          {\textbf{Capacitated Vehicle Routing Problem -- \href{https://arxiv.org/abs/2208.00046}{\underline{ARXIV}}}}{}{}{}
+          \vspace{-22pt}
+          \resumeItemListStart
+            \resumeItem{Implemented VRP with capacitated vehicles, single depot, and distance as constraints. Used DBSCAN Clustering Algorithm for clustering and Christofide’s Algorithm for routing.}          
+          \resumeItemListEnd 
+        
+        \vspace{-2pt}
+        
+        \resumeProjectHeading
+          {\textbf{Semantic Word Embeddings For Marathi Language -- \href{https://www.ijnrd.org/viewpaperforall?paper=IJNRD2210122}{\underline{IJNRD}}}}{}{}{}
+          \vspace{-22pt}
+          \resumeItemListStart
+            \resumeItem{Created word embeddings for the Marathi language with and without morphological analysis. Developed a python based application to demonstrate performance through various word similarity tasks.}          
+          \resumeItemListEnd 
+
+        \vspace{-2pt}
+
+        \resumeProjectHeading
+          {\textbf{Cyber Bullying Detection -- \href{https://github.com/apurv-choudhari/Cyberbullying-detection-using-svm}{\underline{GitHub}}}}{}{}{}
+          \vspace{-22pt}
+          \resumeItemListStart
+            \resumeItem{Built a machine learning model with pre-trained word embeddings for sentence classification tasks to detect bullying comments and achieved 93\% accuracy on Twitter and Wikipedia dataset.}            
+          \resumeItemListEnd 
+        
+        \vspace{-2pt}
+
+        \resumeProjectHeading
+          {\textbf{Smart PDF Assistant}}{}{}{} 
+          \vspace{-22pt}
+          \resumeItemListStart
+            \resumeItem{Devised a solution using QANet with BERT model and Elasticsearch in association with Credit Suisse for efficiently searching relevant context in PDF.}            
+          \resumeItemListEnd
+
+        \vspace{-2pt}
+
+        \resumeSubHeadingListEnd
+    \end{justify}
+
+\vspace{-15pt}
+
+%-----------INVOLVEMENT--------------------------------------------------------------------------------------------------------------------------------------------------------------
+\section{Leadership and Activities}
+  % \begin{justify}
+    \extracurricularItemListStart
+      \extracurricularItem{\textbf{Examiner at VIT:} Assessed 20 projects as an external examiner for industry internship evaluation.}{2022--2023}
+      \extracurricularItem{Led team of 3 to place 4th out of 40 teams in the university wide \textbf{hackathon}.}{Aug 2018}
+    \extracurricularItemListEnd
+  % \end{justify}
+
+
+\end{document}
